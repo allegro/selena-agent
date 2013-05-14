@@ -18,7 +18,7 @@ Dependencies::
 Message queue
 ~~~~~~~~~~~~~
 
-Selena agent communicate  with a cenral queue with `Redis <http://redis.io/>`_ as the broker. Install redis::
+Selena agent communicates with a central queue with `Redis <http://redis.io/>`_ as the broker. Install redis::
 
     $ sudo apt-get install redis-server
 
@@ -33,7 +33,7 @@ We can check the status of the Redis server::
 Virtual Environment
 ~~~~~~~~~~~~~~~~~~~
 
-Let's create a virtual environment for Python in the user's home::
+Create a virtual environment for Python in the user's home directory::
 
   $ virtualenv . --distribute --no-site-packages
 
@@ -45,9 +45,9 @@ Unprivileged and not owned by a person::
   $ sudo adduser --home /home/selena-agent selena-agent
   $ sudo su - selena-agent
 
-In any shell the user can *activate* the virtual environment. By doing that, the
+In any shell the user can *activate* the virtual environment. As a result, the
 default Python executable and helper scripts will point to those within the
-virtual env directory structure::
+virtualenv directory structure::
 
   $ which python
   /usr/local/bin/python
@@ -75,7 +75,7 @@ repository to ``project`` and install it manually::
 Configuration
 -------------
 
-Create file selena-agent/setting-local.py and fill in the appropriate data:
+Create file ``selena-agent/setting-local.py`` and fill in the appropriate data:
 
 Fill Redis connection data::
 
@@ -90,12 +90,12 @@ RQ queue name::
 
   QUEUE_NAME = 'your RQ queue name'
 
-Put quite a unique string of characters::
+The salt has to match the one from the main Selena administration page::
 
   SALT = 'taken from Selena system'
 
 Run
 ---
-To run selena-agent put command::
+To run selena-agent use the command::
 
   (selena-agent)$ selena-agent
