@@ -51,7 +51,7 @@ virtualenv directory structure::
 
   $ which python
   /usr/local/bin/python
-  $ . bin/activate
+  $ source bin/activate
   (selena-agent)$ which python
   /home/selena-agent/bin/python
 
@@ -75,7 +75,7 @@ repository to ``project`` and install it manually::
 Configuration
 -------------
 
-Create file ``selena-agent/setting-local.py`` and fill in the appropriate data:
+Create file ``selena-agent/settings-local.py`` and fill in the appropriate data:
 
 Fill Redis connection data::
 
