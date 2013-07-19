@@ -23,7 +23,7 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
-        'rq==0.3.7',
+        'rq==0.3.8',
         'pycurl==7.18.1',
     ],
     entry_points={
