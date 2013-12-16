@@ -53,7 +53,7 @@ def _check_monitored_phrases(content, monitored_phrases):
 
 
 def _do_request(url, useragent, timeout=30, referer=None, auth={},
-                post_string=None, monitored_phrases=None):
+                post_string=None, monitored_phrases=None, response_code=200):
     result = {}
     if monitored_phrases:
         monitored_phrases = json.loads(monitored_phrases)
@@ -61,6 +61,7 @@ def _do_request(url, useragent, timeout=30, referer=None, auth={},
     auth_method = str(auth.get('method', 1))
     user = auth.get('user')
     password = auth.get('password')
+    resp_code = int(response_code)
     c = pycurl.Curl()
     try:
         c.setopt(c.URL, str(url))
@@ -68,7 +69,10 @@ def _do_request(url, useragent, timeout=30, referer=None, auth={},
         c.setopt(c.WRITEFUNCTION, sio.write)
         c.setopt(c.NOSIGNAL, 1)
         c.setopt(c.TIMEOUT, timeout)
-        c.setopt(c.FOLLOWLOCATION, 1)
+        if resp_code >= 300 and resp_code < 400:
+            c.setopt(c.FOLLOWLOCATION, 0)
+        else:
+            c.setopt(c.FOLLOWLOCATION, 1)
         c.setopt(c.MAXREDIRS, 5)
         c.setopt(c.SSL_VERIFYPEER, 0)
         c.setopt(c.SSL_VERIFYHOST, 0)
@@ -140,6 +144,7 @@ def run_test(config, start_time):
         config['auth'],
         config['post'],
         config['monitored_phrases'],
+        config['response_code'],
     )
     if 'response_code' not in result:
         result.update({
