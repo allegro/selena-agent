@@ -2,8 +2,17 @@
 Selena Agent
 ============
 
+Introduction
+============
+
+Selena is a tool for monitoring website performance by monitoring response
+times, response codes and site content (via keyword checks).
+
+This is its agent part responsible for gathering the data and sending back
+the results.
+
 Installation
-------------
+============
 
 Requirements
 ~~~~~~~~~~~~
@@ -99,3 +108,9 @@ Run
 To run selena-agent use the command::
 
   (selena-agent)$ selena-agent
+
+License
+=======
+Selena is licensed under the `Apache License, v2.0 <https://github.com/allegro/selena-agent/blob/master/LICENSE>`_.
+
+Copyright (c) 2013-2014 `Allegro Group <http://allegrogroup.com>`_.
