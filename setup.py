@@ -24,7 +24,7 @@ setup(
     zip_safe=False,
     install_requires=[
         'rq==0.3.8',
-        'pycurl==7.18.1',
+        'pycurl==7.19.5',
     ],
     entry_points={
         'console_scripts': [
