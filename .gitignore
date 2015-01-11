@@ -3,3 +3,4 @@
 *.swp
 .settings
 settings-local.py
+selena_agent.egg-info/
