@@ -31,8 +31,7 @@ def main():
         db=settings.REDIS_CONNECTION.get('DB'),
         password=settings.REDIS_CONNECTION.get('PASSWORD'),
     )
-    stopped = False
-    while True and not stopped:
+    while True:
         try:
             with Connection(redis_connection):
                 worker = Worker(Queue(name=settings.QUEUE_NAME))
