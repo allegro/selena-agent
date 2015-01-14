@@ -125,7 +125,7 @@ def _do_request(url, useragent, timeout=30, referer=None, auth={},
         result.update({
             'error': str(e[1]),
         })
-    except:
+    except Exception:
         result.update({
             'error': str(sys.exc_info()),
         })
