@@ -33,8 +33,8 @@ AUTH_METHOD_BY_ID = {
 def _get_post_data_as_list(post_string):
     return [
         tuple(element.encode('utf-8')
-            for element in segment.split('='))
-                for segment in post_string.split("&")
+              for element in segment.split('=')
+              ) for segment in post_string.split("&")
     ]
 
 
