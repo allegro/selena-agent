@@ -3,3 +3,6 @@
 *.swp
 .settings
 settings-local.py
+.idea
+.tox
+*.egg-info

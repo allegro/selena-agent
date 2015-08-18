@@ -20,6 +20,29 @@ QUEUE_NAME = None
 
 SALT = None
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '%(asctime)s %(levelname)s %(module)s line:%(lineno)d: %(message)s'
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose',
+        },
+    },
+    'loggers': {
+        '': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+        },
+    },
+}
+
 local_settings = '%s%ssettings-local.py' % (
     os.path.realpath(os.path.dirname(__file__)),
     os.path.sep,
